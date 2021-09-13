@@ -3,6 +3,7 @@ export interface dateProps {
 }
 
 export interface expenseitemProps extends dateProps {
+    id?: string
     title: string
     amount: number
 }
@@ -10,5 +11,12 @@ export interface expenseitemProps extends dateProps {
 export interface expensesProps {
     items: Array<expenseitemProps>
 }
+
+export interface newExpenseForm {
+    onSaveExpenseData(expenseData :expenseitemProps): void
+    onCancel(): void
+}
+
+
 
 

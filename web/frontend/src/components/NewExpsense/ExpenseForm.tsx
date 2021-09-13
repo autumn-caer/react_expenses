@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
+import { newExpenseForm } from "../../interface/expenseitemProps";
+
 import "./ExpenseForm.css";
-const ExpenseForm = (props: any) => {
+
+const ExpenseForm = (props: newExpenseForm) => {
   const [enteredTtitle, setEnteredTtitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -23,7 +26,7 @@ const ExpenseForm = (props: any) => {
 
     const expenesData = {
       title: enteredTtitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     }
 
@@ -64,6 +67,7 @@ const ExpenseForm = (props: any) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
